@@ -1,7 +1,7 @@
 # CalculatePiInC
 Just a little program based on the fact that the probability that two 
 random numbers are coprime(meaning their Greatest Common Denominator is 
-1) is 6/pi^2. 
+one) is 6/pi^2. 
 
 This program just generates "ton" of random numbers, calculates the 
 probability of the numbers being coprime and then uses it to calculate 
