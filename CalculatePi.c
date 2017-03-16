@@ -3,9 +3,6 @@
 #include <stdio.h>
 #include <sodium.h> //requiers libsodium crypto library
 #include <math.h>
-
-uint32_t randombytes_uniform();
-
 int gcd(uint32_t a, uint32_t b){  //Calculates Greatest Common Denominator(dividor) of two ints
     int f,gcd;
     for(f=1;f<=a && f<=b;f++){
@@ -17,16 +14,11 @@ int gcd(uint32_t a, uint32_t b){  //Calculates Greatest Common Denominator(divid
 }
 double calculatePi(int counter, int numCount){ //Calculates Pi based on the fact mentioned in README.md file 
     double ratio = (double) counter / numCount;
-    //printf("%d %d\n", counter, numCount);
-    //printf("\n%d\n",counter);
-    double pi = (double) sqrt(6/ratio);
-    return pi;
+    return (double) sqrt(6/ratio);
 }
-
 int main (void){
-    int i=0,counter=0,numCount=10;
+    int i=0,counter=0,numCount=100;
     uint32_t a,b;
-
     /*  
     ---------------------------- USE ON LINUX IF YOU DON'T WANT TO USE LIBSODIUM
     unsigned int seed;
@@ -36,7 +28,6 @@ int main (void){
     srand(seed);
     ----------------------------
     */
-
     //srand(time(NULL)); <-- USE IF NOT ON LINUX
     while(i < numCount){
         a = randombytes_uniform(120000);
@@ -45,8 +36,6 @@ int main (void){
             counter++;
         }
         i++;
-        //printf("%d\n%d\n",a,b);
     }
-    printf("Pi is cca %f !!", calculatePi(counter, numCount));
-    
+    printf("Pi is cca %f !!", calculatePi(counter, numCount));  
 }
